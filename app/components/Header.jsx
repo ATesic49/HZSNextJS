@@ -1,12 +1,13 @@
 "use client";
+import favicon from "../favicon.ico";
 import Link from "next/link";
-import favicon from '../../favicon.ico'
 // MOZDA STAVITI POSITION FIXED PRODUSKUTOVATI
 import Button from ".//UI/Button";
 import { useState } from "react";
 // import { Link } from "react-router-dom";
 import AddModal from ".//UI/AddModal";
 // import { useState } from "react";
+import Image from "next/image";
 
 export default function Header() {
   const [active, setActive] = useState(false);
@@ -18,7 +19,11 @@ export default function Header() {
   }
 
   return (
-    <Head className="text-gray-400 bg-gray-900 body-font">
+    <div
+      className="
+    text-gray-400 bg-gray-900 body-font
+    "
+    >
       <AddModal
         onChange={(e) => {
           changeModal(e);
@@ -30,7 +35,7 @@ export default function Header() {
           href="/"
           className="flex title-font font-medium items-center text-white mb-4 md:mb-0"
         >
-           <img src={favicon} alt="Favicon" className="w-8 h-8" />
+          <Image src={favicon} alt="Favicon" className="w-8 h-8" />
           <span className="ml-3 text-xl">Tailblocks</span>
         </Link>
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700 flex flex-wrap items-center text-base justify-center">
@@ -61,6 +66,6 @@ export default function Header() {
           </svg>
         </Button>
       </div>
-    </Head>
+    </div>
   );
 }
