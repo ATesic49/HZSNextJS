@@ -1,32 +1,25 @@
+import Image from "next/image";
+import favicon from "../../favicon.ico"
+
+
 function Footer() {
   return (
     <div className="text-gray-400 bg-gray-900 body-font">
       <div className="bg-gray-800 bg-opacity-75">
         <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-            <span className="ml-3 text-xl">Tailblocks</span>
+          <Image src={favicon} alt="Favicon" className="w-8 h-8" />
+          <span className="ml-3 text-xl">MungosSport</span>
           </a>
           <p className="text-sm text-gray-400 sm:ml-6 sm:mt-0 mt-4">
-            © 2020 Tailblocks —
+            © 2023 Hakaton Za Srednjoškolce —
             <a
               href="https://twitter.com/knyttneve"
               className="text-gray-500 ml-1"
               target="_blank"
               rel="noopener noreferrer"
             >
-              @knyttneve
+              Tim Mungosi
             </a>
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">

@@ -74,54 +74,54 @@ function SignInModal({ onClose, signUp }) {
   }
 
   return (
-    <div className="p-4 w-[50vw] top-[-2em] shadow text-white bg-gray-900 rounded-xl relative">
-      <div className="flex mx-10  justify-between">
-        <h1 className="text-3xl font-semibold"> Sign In </h1>
-        <Button onClick={onClose} className="rounded-full py-4">
-          <AiOutlineClose className="text-l font-bold" />
-        </Button>
-      </div>
-      <form
-        className="flex h-auto gap-2  flex-col align-middle justify-center mx-10 mb-10"
-        onSubmit={handleSubmit}
+    <div className="p-4 w-full sm:w-[70vw] md:w-[60vw] lg:w-[50vw] xl:w-[40vw] top-[-2em] shadow text-white bg-gray-900 rounded-xl relative">
+  <div className="flex mx-10 justify-between">
+    <h1 className="text-3xl font-semibold"> Sign In </h1>
+    <Button onClick={onClose} className="rounded-full py-4">
+      <AiOutlineClose className="text-l font-bold" />
+    </Button>
+  </div>
+  <form
+    className="flex h-auto gap-2 flex-col align-middle justify-center mx-10 mb-10"
+    onSubmit={handleSubmit}
+  >
+    <Input
+      heading={"User Name:"}
+      placeholder={"Enter your user name..."}
+      type={"text"}
+      name={"userName"}
+      value={user.userName}
+      onChange={handleInputChange}
+      validationError={validationErrors.userName}
+      required
+    />
+    <Input
+      heading={"Password:"}
+      placeholder={"Enter your password..."}
+      type={"password"}
+      name={"password"}
+      value={user.password}
+      onChange={handleInputChange}
+      validationError={validationErrors.password}
+      required
+    />
+    <div className="absolute w-full flex justify-left bottom-20">
+      <h2 className="py-3 px-2"> Don't have an account? </h2>
+      <Button
+        className="bold hover:border-b-2 py-1 px-0"
+        onClick={(e) => {
+          e.preventDefault();
+          signUp();
+        }}
       >
-        <Input
-          heading={"User Name:"}
-          placeholder={"Enter your user name..."}
-          type={"text"}
-          name={"userName"}
-          value={user.userName}
-          onChange={handleInputChange}
-          validationError={validationErrors.userName}
-          required
-        />
-        <Input
-          heading={"Password:"}
-          placeholder={"Enter your password..."}
-          type={"password"}
-          name={"password"}
-          value={user.password}
-          onChange={handleInputChange}
-          validationError={validationErrors.password}
-          required
-        />
-        <div className="absolute w-full flex justify-left bottom-20">
-          <h2 className="py-3 px-2"> Don't have an account? </h2>
-          <Button
-            className="bold hover:border-b-2 py-1 px-0"
-            onClick={(e) => {
-              e.preventDefault();
-              signUp();
-            }}
-          >
-            Sign up!
-          </Button>
-        </div>
+        Sign up!
+      </Button>
+    </div>
 
-        <div className="mt-4 flex relative bottom-[-25px] justify-between ">
-          <Button
-            onClick={handleSubmit}
-            className="px-6 py-3 flex justify-center
+    <div className="mt-4 flex relative bottom-[-25px] justify-between ">
+      <Button
+        onClick={handleSubmit}
+        className="px-6 py-3 flex justify-center
             after:absolute relative  after:aspect-square after:top-[-1em] after:rounded-[100%] after:left-[50%]
             duration-500 z-[1]
             hover:text-gray-900
@@ -129,20 +129,21 @@ function SignInModal({ onClose, signUp }) {
              after:overflow-visible after:bg-white after:translate-x-[-50%]
             save hover:after:top-[50%] hover:after:translate-y-[-50%] after:duration-500
             "
-            type="submit"
-          >
-            Save
-          </Button>
-          <Button
-            className="w-1/6 px-20 relative py-0 flex justify-center  border  after:absolute after:top-[50%] after:left-[50%] after:translate-x-[-50%] after:translate-y-[-50%] hover:after:bg-white after:w-1/12 after:aspect-square after:rounded-[100%] duration-500 hover:after:w-[150%]  hover:text-gray-900 overflow-hidden after:duration-500 z-[1] after:z-[-1] "
-            type="submit"
-            onClick={onClose}
-          >
-            Cancel
-          </Button>
-        </div>
-      </form>
+        type="submit"
+      >
+        Save
+      </Button>
+      <Button
+        className="w-1/6 px-20 relative py-0 flex justify-center  border  after:absolute after:top-[50%] after:left-[50%] after:translate-x-[-50%] after:translate-y-[-50%] hover:after:bg-white after:w-1/12 after:aspect-square after:rounded-[100%] duration-500 hover:after:w-[150%]  hover:text-gray-900 overflow-hidden after:duration-500 z-[1] after:z-[-1] "
+        type="submit"
+        onClick={onClose}
+      >
+        Cancel
+      </Button>
     </div>
+  </form>
+</div>
+
   );
 }
 

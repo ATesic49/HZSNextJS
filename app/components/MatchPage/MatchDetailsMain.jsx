@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProfileSection = () => {
+const MatchDetailsMain = () => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 pt-20 mx-auto flex flex-col">
@@ -73,4 +73,4 @@ const ProfileSection = () => {
   )
 }
 
-export default ProfileSection
+export default MatchDetailsMain

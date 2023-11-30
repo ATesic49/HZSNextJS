@@ -36,14 +36,14 @@ export default function Header() {
           className="flex title-font font-medium items-center text-white mb-4 md:mb-0"
         >
           <Image src={favicon} alt="Favicon" className="w-8 h-8" />
-          <span className="ml-3 text-xl">Tailblocks</span>
+          <span className="ml-3 text-xl">MungosSport</span>
         </Link>
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700 flex flex-wrap items-center text-base justify-center">
           <Link href="/feed/true" className="mr-5 hover:text-white">
-            Predstojeci Mecevi
+            Predstojeći Mečevi
           </Link>
           <Link href="/feed/false" className="mr-5 hover:text-white">
-            Prosli Mecevi
+            Prošli Mečevi
           </Link>
         </nav>
         <Button
@@ -52,7 +52,7 @@ export default function Header() {
           }}
           className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0"
         >
-          {loggedIn ? "Sign out" : "Log in"}
+          {loggedIn ? "Izloguj se" : "Uloguj se"}
           <svg
             fill="none"
             stroke="currentColor"
