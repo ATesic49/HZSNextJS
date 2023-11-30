@@ -13,24 +13,38 @@ const changeOnEvery3Hours = async () => {
 }
 
 export default async function Home() {
+  const minutes = new Date().getMinutes()
+  console.log(minutes)
+  if (minutes === 0) {
+    try {
+      const res = await axios.get('http://localhost:3000/api/renewDatabase')
+      console.log(res)
 
-  // try {
-  //   const res = await axios.get('http://localhost:3000/api/renewDatabase')
-  //   console.log(res)
+    } catch (e) {
+      // console.log('ERROR SE DESIO:', e)
+      console.log('error')
 
-  // } catch (e) {
-  //   // console.log('ERROR SE DESIO:', e)
-  //   console.log('error')
+    }
+  }
 
-  // }
-  console.log(new Date().getMinutes())
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("your-api-endpoint");
+    } catch (error) {
+    } finally {
+    }
+  };
+
+  fetchData();
+
   return (
     <div className="box-border min-h-[70vh]">
       <div className="grid gap-6 md:grid-cols-2 min-h-[80vh] justify-center items-center overflow-hidden">
         <WelcomeText />
         <CanvasModel />
       </div>
-      <Section />
+      <Section Name={'Katarina'} />
     </div>
   )
 }

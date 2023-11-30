@@ -1,26 +1,15 @@
-import SectionEvent from './SectionEvent';
-import { useEffect } from 'react';
-import axios from 'axios';
+"use client";
+import { useState } from "react";
+import SectionEvent from "./SectionEvent";
+import axios from "axios";
 
-function Section({Name}) {
-  const [data, setData] = useState(null);
+function Section({ Name }) {
+  const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('your-api-endpoint');
-        setData(response.data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  // setData(response.data);
+  // setError(error);
+  // setLoading(false);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -42,18 +31,20 @@ function Section({Name}) {
               Najpopularnije utakmice
             </h2>
             <p className="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0">
-              Pregled najpopularnijih utakmica koje predstoje! Poveži se sa zajednicom kroz predviđanje
-              rezultata! 
+              Pregled najpopularnijih utakmica koje predstoje! Poveži se sa
+              zajednicom kroz predviđanje rezultata!
             </p>
           </div>
         </div>
         <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-        {data &&
-          data.slice(0, 3).map((data, index) => <SectionEvent key={index} data={data} />)}
+          {data &&
+            data
+              .slice(0, 3)
+              .map((data, index) => <SectionEvent key={index} data={data} />)}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Section
+export default Section;
