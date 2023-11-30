@@ -134,7 +134,10 @@ function SignInModal({ onClose, signUp }) {
         Save
       </Button>
       <Button
-        className="w-1/6 px-20 relative py-0 flex justify-center  border  after:absolute after:top-[50%] after:left-[50%] after:translate-x-[-50%] after:translate-y-[-50%] hover:after:bg-white after:w-1/12 after:aspect-square after:rounded-[100%] duration-500 hover:after:w-[150%]  hover:text-gray-900 overflow-hidden after:duration-500 z-[1] after:z-[-1] "
+        className="w-1/6 lg:px-20 max-w-[90vw] relative py-0 flex justify-center  border  
+        after:absolute after:top-[50%] after:left-[50%] after:translate-x-[-50%] after:translate-y-[-50%] 
+        hover:after:bg-white after:w-1/12 after:aspect-square after:rounded-[100%] duration-500 hover:after:w-[150%]  
+        hover:text-gray-900 overflow-hidden after:duration-500 z-[1] after:z-[-1] "
         type="submit"
         onClick={onClose}
       >
