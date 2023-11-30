@@ -27,10 +27,10 @@ function SignUpModal({ onClose, signIn }) {
     age: '',
   })
   //regex validators
-  const userNameRegex = /^[a-zA-Z][a-zA-Z0-9_]{2,19}$/
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
   const ageRegex = /^(1[3-9]|[2-9]\d)$/ // Allows ages from 13 to 99
+  const userNameRegex = /^[a-zA-Z][a-zA-Z0-9_]{2,19}$/
+  const passwordRegex =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+  
 
   // opciopnalno const imageFileRegex = /\.(jpg|jpeg|png|gif)$/i;
   function validateInput(name) {
