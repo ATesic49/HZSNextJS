@@ -10,16 +10,24 @@ import axios from 'axios'
 
 
 const changeOnEvery3Hours = async () => {
-  const res = axios.get('')
 }
 
-export default function Home() {
+export default async function Home() {
 
+  // try {
+  //   const res = await axios.get('http://localhost:3000/api/renewDatabase')
+  //   console.log(res)
+
+  // } catch (e) {
+  //   // console.log('ERROR SE DESIO:', e)
+  //   console.log('error')
+
+  // }
+  console.log(new Date().getMinutes())
   return (
     <div className="box-border min-h-[70vh]">
       <div className="grid gap-6 md:grid-cols-2 min-h-[80vh] justify-center items-center overflow-hidden">
         <WelcomeText />
-
         <CanvasModel />
       </div>
       <Section />
