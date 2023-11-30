@@ -1,13 +1,9 @@
-import { useState } from 'react'
-import Button from '../../UI/Button'
-import { AiOutlineLike } from 'react-icons/ai'
-import { AiFillLike } from 'react-icons/ai'
+import { useState } from "react";
+import Button from "../../UI/Button";
+import { AiOutlineLike } from "react-icons/ai";
+import { AiFillLike } from "react-icons/ai";
 
 function Comment() {
-  const [isLiked, setIsLiked] = useState(false)
-  function changeLike() {
-    setIsLiked(prev => !prev)
-  }
   return (
     <div className="flex items-center lg:w-3/5 mx-auto border-b pb-6 mb-6 border-gray-200 sm:flex-row flex-col">
       <div className="sm:w-16 sm:h-16 h-12 w-14 sm:mr-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
@@ -56,7 +52,7 @@ function Comment() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Comment
+export default Comment;

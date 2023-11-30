@@ -6,7 +6,7 @@ import CanvasModel from './components/HomePage/CanvasModel'
 import Section from './components/HomePage/Section'
 import { motion, AnimatePresence } from 'framer-motion'
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 
 
@@ -14,46 +14,25 @@ import { useEffect } from 'react'
 const changeOnEvery3Hours = async () => {
 }
 
-export default async function Home() {
-  const minutes = new Date().getSeconds()
+export default function Home() {
+
   useEffect(() => {
-    const func = async () => {
-      if (minutes === 0) {
-        try {
-          const res = await axios.get('http://localhost:3000/api/renewDatabase')
-          console.log(res)
-
-        } catch (e) {
-          // console.log('ERROR SE DESIO:', e)
-          console.log('error')
-
-        }
+    console.log('as')
+    const interval = setInterval(async () => {
+      console.log('broj')
+      try {
+        const res = axios.get('/api/renewDatabase')
+        console.log(res)
+      } catch (e) {
+        console.log('error')
       }
-    }
-    func()
-    console.log('a minute passed')
-  }, [minutes])
-  console.log(minutes)
+
+    }, 20000); // Update every minute
+
+    return () => clearInterval(interval);
+  }, []);
 
 
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get("your-api-endpoint");
-    } catch (error) {
-    } finally {
-    }
-  };
-
-  fetchData();
-  // const interval = setInterval(() => console.log('Interval'), 1000 * 10)
-  // if (!interval) {
-  //   console.log('aas')
-  // } else {
-  //   clearInterval(interval)
-
-  //   console.log('ubicu se')
-  // }
   return (
     <div className="box-border min-h-[70vh]">
       <div className="grid gap-6 md:grid-cols-2 min-h-[80vh] justify-center items-center overflow-hidden">

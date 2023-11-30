@@ -56,23 +56,11 @@ function page() {
             <div className="flex flex-col justify-center gap-3">
                 {utakmice?.map((utakmica: object) => {
                     return (
+                        //@ts-ignore
                         <div>{utakmica.id}</div>
                     )
                 })}
-                {/* <InfiniteScroll
-                    dataLength={articles ? articles.length : 1}
-                    next={() => fetchNextPage()}
-                    hasMore={hasNextPage}
-                    loading={<div>Loading...</div>}
-
-                >
-                    <div>
-                        {articles &&
-                            // articles.map((data, index) => <Match key={index} data={data} />
-                            articles.map((data, index) => <div key={index} >sadas</div>
-                            )}
-                    </div>
-                </InfiniteScroll> */}
+                <Match isUpcoming={'true'} />
             </div>
         </div>
     )
