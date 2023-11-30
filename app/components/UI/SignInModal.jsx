@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import Input from './Input'
-import Button from './Button'
-import { AiOutlineClose } from 'react-icons/ai'
+"use client";
+import { useState } from "react";
+import Input from "./Input";
+import Button from "./Button";
+import { AiOutlineClose } from "react-icons/ai";
 
 //PAZI NA LOZINKU MORA SE HASH-UJE U JWT-u!!!
 //VERIFIKACIJA REGEX!!!
@@ -9,67 +10,67 @@ import { AiOutlineClose } from 'react-icons/ai'
 
 function SignInModal({ onClose, signUp }) {
   const [user, setUser] = useState({
-    userName: '',
-    password: '',
-    email: '',
-    date: '',
-    profileImage: '',
-  })
+    userName: "",
+    password: "",
+    email: "",
+    date: "",
+    profileImage: "",
+  });
 
   const [validationErrors, setValidationErrors] = useState({
-    userName: '',
-    password: '',
-  })
+    userName: "",
+    password: "",
+  });
   //regex validators
-  const userNameRegex = /^[a-zA-Z][a-zA-Z0-9_]{2,19}$/
+  const userNameRegex = /^[a-zA-Z][a-zA-Z0-9_]{2,19}$/;
   const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   function validateInput(name) {
     switch (name) {
-      case 'userName':
-        setValidationErrors(prevErrors => ({
+      case "userName":
+        setValidationErrors((prevErrors) => ({
           ...prevErrors,
           userName: userNameRegex.test(user.userName)
-            ? ''
+            ? ""
             : `Duzina korisnickog imena mora biti izmedju 3 i 20 karaktera.`,
-        }))
-        break
-      case 'password':
-        setValidationErrors(prevErrors => ({
+        }));
+        break;
+      case "password":
+        setValidationErrors((prevErrors) => ({
           ...prevErrors,
           password: passwordRegex.test(user.password)
-            ? ''
+            ? ""
             : `Lozinka mora da ima bar jedno veliko i malo slovo, minimum 8 karaktera, broj i bar jedan specijalni karakter`,
-        }))
-        break
+        }));
+        break;
       default:
-        break
+        break;
     }
   }
 
   function handleInputChange(event) {
-    const { name, value } = event.target
-    setUser({ ...user, [name]: value })
+    const { name, value } = event.target;
+    setUser({ ...user, [name]: value });
   }
 
   function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     Object.entries(user).map(([name, attr]) => {
-      validateInput(name)
-    })
+      validateInput(name);
+    });
     //mutacija ide ovde
-    if (Object.values(validationErrors).some(error => error !== '')) {
+    if (Object.values(validationErrors).some((error) => error !== "")) {
       // Handle validation errors (you may display an alert or any other logic)
-      console.log('Form has validation errors')
-      return
+      console.log("Form has validation errors");
+      return;
     }
     setUser({
-      userName: '',
-      password: '',
-      email: '',
-    })
-    onClose()
+      userName: "",
+      password: "",
+      email: "",
+    });
+    onClose();
   }
 
   return (
@@ -85,20 +86,20 @@ function SignInModal({ onClose, signUp }) {
         onSubmit={handleSubmit}
       >
         <Input
-          heading={'User Name:'}
-          placeholder={'Enter your user name...'}
-          type={'text'}
-          name={'userName'}
+          heading={"User Name:"}
+          placeholder={"Enter your user name..."}
+          type={"text"}
+          name={"userName"}
           value={user.userName}
           onChange={handleInputChange}
           validationError={validationErrors.userName}
           required
         />
         <Input
-          heading={'Password:'}
-          placeholder={'Enter your password...'}
-          type={'password'}
-          name={'password'}
+          heading={"Password:"}
+          placeholder={"Enter your password..."}
+          type={"password"}
+          name={"password"}
           value={user.password}
           onChange={handleInputChange}
           validationError={validationErrors.password}
@@ -108,9 +109,9 @@ function SignInModal({ onClose, signUp }) {
           <h2 className="py-3 px-2"> Don't have an account? </h2>
           <Button
             className="bold hover:border-b-2 py-1 px-0"
-            onClick={e => {
-              e.preventDefault()
-              signUp()
+            onClick={(e) => {
+              e.preventDefault();
+              signUp();
             }}
           >
             Sign up!
@@ -142,7 +143,7 @@ function SignInModal({ onClose, signUp }) {
         </div>
       </form>
     </div>
-  )
+  );
 }
 
-export default SignInModal
+export default SignInModal;
