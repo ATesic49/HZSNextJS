@@ -14,17 +14,13 @@ interface MathchesProps {
 }
 
 
-const getMatches = async (isUpcoming: String) => {
-    let api_key = ''
-    isUpcoming ? (api_key = 'api key za predstojece') : 'api key za prethodne '
-    const res = await axios.get('https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard')
-    const data = res.data.events
-    return data
-}
-function page() {
+
+async function page() {
     const { slug: isUpcoming } = useParams()
+
+
     const isUpcomingBoolean = isUpcoming === 'true'
-    console.log(isUpcoming)
+    // console.log(isUpcoming)
     // const { data, fetchNextPage, hasNextPage } = useInfiniteQuery({
     //     queryKey: ['matches'],
     //     queryFn: () => getMatches({ pageParam: 1, isUpcoming: isUpcoming as String }),
@@ -40,12 +36,12 @@ function page() {
     // const articles = data?.pages.reduce((acc: any, page: any) => {
     //     return [...acc, ...page.articles]
     // }, [])
-    const { data: utakmice, status, error } = useQuery({
-        queryKey: ['utakmice'],
-        queryFn: () => getMatches(isUpcoming as String)
+    // const { data: utakmice, status, error } = useQuery({
+    //     queryKey: ['utakmice'],
+    //     queryFn: () => getMatches(isUpcoming as String)
 
-    })
-    console.log(utakmice)
+    // })
+    // console.log(utakmice)
     return (
         <div className="w-full flex flex-col justify-center  bg-stone-100 p-5 mb-5">
             <div className="flex justify-center items-center mb-10">
@@ -54,13 +50,8 @@ function page() {
                 </h1>
             </div>
             <div className="flex flex-col justify-center gap-3">
-                {utakmice?.map((utakmica: object) => {
-                    return (
-                        //@ts-ignore
-                        <div>{utakmica.id}</div>
-                    )
-                })}
-                <Match isUpcoming={'true'} />
+                {/*      */}
+                <Match />
             </div>
         </div>
     )

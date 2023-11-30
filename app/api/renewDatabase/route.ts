@@ -11,21 +11,16 @@ export async function GET() {
     "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard"
   );
   const odigraneData = odigraneUtakmice.data.events;
-  const odigraneArray = odigraneData.forEach((utakmica) => {
-    const matchString = "Juventus at Real Madrid";
-    const teams = matchString.split(" at ");
-    return {
-      live: false,
-      HomeTeam: utakmica.name.split(" at ")[0],
-      AwayTeam: utakmica.name.split(" at ")[0],
-      HomeTeamImg: utakmica.competitions.competitors[0].team.logo,
-      AwayTeamImg: utakmica.competitions.competitors[1].team.logo,
-      score: ``,
-    };
-  });
-  const odigranePrisma = await prisma.utakmica.createMany({
-    data: [{}],
-  });
-
-  return new Response(JSON.stringify({ data }));
+  // const odigraneArray = odigraneData.forEach((utakmica) => {
+  //   const matchString = "Juventus at Real Madrid";
+  //   const teams = matchString.split(" at ");
+  //   return {
+  //     live: false,
+  //     HomeTeam: utakmica.name.split(" at ")[0],
+  //     AwayTeam: utakmica.name.split(" at ")[0],
+  //     HomeTeamImg: utakmica.competitions.competitors[0].team.logo,
+  //     AwayTeamImg: utakmica.competitions.competitors[1].team.logo,
+  //     score: `1 - 2`,
+  //   };
+  // });
 }
